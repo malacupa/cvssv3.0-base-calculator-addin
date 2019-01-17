@@ -20,8 +20,8 @@
   <Description DefaultValue="Sidebar with CVSSv3.0 Calculator that shows and possibly insert your CVSSv3.0 value in your Word document. This is just a simple implementation of https://github.com/chandanbn/cvss."/>
 
   <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
-  <IconUrl DefaultValue="https://localhost:3000/assets/icon64.png" />
-  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon80.png"/>
+  <IconUrl DefaultValue="https://malacupa.github.io/cvssv3.0-base-calculator-addin/assets/icon64.png" />
+  <HighResolutionIconUrl DefaultValue="https://malacupa.github.io/cvssv3.0-base-calculator-addin/assets/icon80.png"/>
   <SupportUrl DefaultValue="http://github.com/malacupa/cvssv3.0-base-calculator/"/>
 
   <!--End Basic Settings. -->
@@ -32,7 +32,7 @@
   </Hosts>
 
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://localhost:3000/index.html" />
+    <SourceLocation DefaultValue="https://malacupa.github.io/cvssv3.0-base-calculator-addin/index.html" />
   </DefaultSettings>
   <!-- End TaskPane Mode integration.  -->
 
@@ -117,15 +117,15 @@
     <!-- You can use resources across hosts and form factors. -->
     <Resources>
       <bt:Images>
-        <bt:Image id="CVSSCal.icon16" DefaultValue="https://localhost:3000/assets/icon16.png" />
-        <bt:Image id="CVSSCal.icon32" DefaultValue="https://localhost:3000/assets/icon32.png" />
-        <bt:Image id="CVSSCal.icon64" DefaultValue="https://localhost:3000/assets/icon64.png" />
-        <bt:Image id="CVSSCal.icon80" DefaultValue="https://localhost:3000/assets/icon80.png" />
+        <bt:Image id="CVSSCal.icon16" DefaultValue="https://malacupa.github.io/cvssv3.0-base-calculator-addin/assets/icon16.png" />
+        <bt:Image id="CVSSCal.icon32" DefaultValue="https://malacupa.github.io/cvssv3.0-base-calculator-addin/assets/icon32.png" />
+        <bt:Image id="CVSSCal.icon64" DefaultValue="https://malacupa.github.io/cvssv3.0-base-calculator-addin/assets/icon64.png" />
+        <bt:Image id="CVSSCal.icon80" DefaultValue="https://malacupa.github.io/cvssv3.0-base-calculator-addin/assets/icon80.png" />
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="CVSSCal.Taskpane.Url" DefaultValue="https://localhost:3000/index.html" />
+        <bt:Url id="CVSSCal.Taskpane.Url" DefaultValue="https://malacupa.github.io/cvssv3.0-base-calculator-addin/index.html" />
         <bt:Url id="CVSSCal.GetStarted.LearnMoreUrl" DefaultValue="https://github.com/malacupa/cvssv3.0-base-calculator-addin" />
-        <bt:Url id="CVSSCal.DesktopFunctionFile.Url" DefaultValue="https://localhost:3000/function-file/function-file.html" />
+        <bt:Url id="CVSSCal.DesktopFunctionFile.Url" DefaultValue="https://malacupa.github.io/cvssv3.0-base-calculator-addin/function-file/function-file.html" />
       </bt:Urls>
       <!-- ShortStrings max characters==125. -->
       <bt:ShortStrings>

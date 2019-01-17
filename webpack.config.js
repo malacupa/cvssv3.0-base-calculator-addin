@@ -45,6 +45,6 @@ module.exports = {
     ],
     output: {
       path: path.resolve(__dirname, "docs"),
-      publicPath: "/docs/"
+      publicPath: "/cvssv3.0-base-calculator-addin/"
     }
 };
