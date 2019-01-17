@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CVSSv3.0 Base Calculator</title>
+
+    <!-- Office JavaScript API, use debug for development -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+
+    <!-- Calculator from https://github.com/chandanbn/cvss -->
+    <link rel="stylesheet" type="text/css" media="all" href="assets/cvss.css">
+    <script src="assets/cvss.js"></script>
+
+    <!-- Some modifications so it looks nice in Word-->
+    <link rel="stylesheet" type="text/css" media="all" href="assets/style.css">
+</head>
+
+<body class="ms-font-m">
+    <div id="cvssboard">
+    </div> 
+
+    <small id="footer">
+Copyright 2017 © Chandan
+<br/>Free to use, copy, modification under a BSD like licence.
+<br/>CVSS (Common Vulnerability Scoring System) is a free and open standard. It is owned and managed by <a href="http://www.first.org/">FIRST.Org</a>.</small>
+    <script>
+        var c = new CVSS("cvssboard", {
+            onchange: function() {
+                window.location.hash = c.get().vector;
+                c.vector.setAttribute('href', '#' + c.get().vector)
+            }
+        });
+        if (window.location.hash.substring(1).length > 0) {
+            c.set(decodeURIComponent(window.location.hash.substring(1)));
+        }
+    </script>
+</body>
+</html>

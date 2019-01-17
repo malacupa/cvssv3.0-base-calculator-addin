@@ -1,0 +1,52 @@
+
+body {
+    background-color: #e0e4e4;
+    font-family: arial;
+    padding: 1em;
+
+}
+#footer {
+    font-size: x-small;
+}
+
+#footer, sH3 {
+    color: gray;
+}
+@media screen and (min-width: 720px) {
+        #cvssboard {
+            width: 640px;
+        }
+}
+
+/* modifitcations so the chandanbn's calculator looks pretty in my word sidebar */
+@media screen and (min-width: 300px) {
+        .ms-font-m {
+            font-size: 14px;
+        }
+        .cvssjs i {
+          display: none;
+        }
+        .cvssjs dd label {
+          padding: 3px;
+        }
+        #cvssboard {
+            width: 280px;
+        }
+        /* make helper fileds fit */
+        .cvssjs dd:hover small {
+           max-width: 170px;
+           margin-left: -2em;
+        }
+        .results .vector {
+          font-size: 12px;
+        }
+}
+
+#ins-btn {
+  margin: 5px;
+  font-size: 16px;
+  border-radius: 2px;
+  border: 1px solid;
+  padding: 7px 15px;
+}
+

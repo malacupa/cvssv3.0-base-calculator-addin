@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp
+          xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+          xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+          xsi:type="TaskPaneApp">
+
+  <!-- Begin Basic Settings: Add-in metadata, used for all versions of Office unless override provided. -->
+
+  <!-- IMPORTANT! Id must be unique for your add-in, if you reuse this manifest ensure that you change this id to a new GUID. -->
+  <Id>a51c971c-2f36-4a57-a252-a16bb072a857</Id>
+
+  <!--Version. Updates from the store only get triggered if there is a version change. -->
+  <Version>1.1.0.0</Version>
+  <ProviderName>malacupa</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
+  <DisplayName DefaultValue="CVSSv3.0 Base Calculator" />
+  <Description DefaultValue="Sidebar with CVSSv3.0 Calculator that shows and possibly insert your CVSSv3.0 value in your Word document. This is just a simple implementation of https://github.com/chandanbn/cvss."/>
+
+  <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
+  <IconUrl DefaultValue="https://localhost:3000/assets/icon64.png" />
+  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon80.png"/>
+  <SupportUrl DefaultValue="http://github.com/malacupa/cvssv3.0-base-calculator/"/>
+
+  <!--End Basic Settings. -->
+
+  <!--Begin TaskPane Mode integration. This section is used if there are no VersionOverrides or if the Office client version does not support add-in commands. -->
+  <Hosts>
+    <Host Name="Document" />
+  </Hosts>
+
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://localhost:3000/index.html" />
+  </DefaultSettings>
+  <!-- End TaskPane Mode integration.  -->
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+  <!-- Begin Add-in Commands Mode integration. -->
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+
+    <!-- The Hosts node is required. -->
+    <Hosts>
+      <!-- Each host can have a different set of commands. -->
+      <!-- Excel host is Workbook, Word host is Document, and PowerPoint host is Presentation. -->
+      <!-- Make sure the hosts you override match the hosts declared in the top section of the manifest. -->
+      <Host xsi:type="Document">
+        <!-- Form factor. Currently only DesktopFormFactor is supported. -->
+        <DesktopFormFactor>
+
+
+          <!--"This code enables a customizable message to be displayed when the add-in is loaded successfully upon individual install."-->
+          <GetStarted>
+            <!-- Title of the Getting Started callout. resid points to a ShortString resource -->
+            <Title resid="CVSSCal.GetStarted.Title"/>
+
+            <!-- Description of the Getting Started callout. resid points to a LongString resource -->
+            <Description resid="CVSSCal.GetStarted.Description"/>
+
+            <!-- Point to a url resource which details how the add-in should be used. -->
+            <LearnMoreUrl resid="CVSSCal.GetStarted.LearnMoreUrl"/>
+          </GetStarted>
+
+          <!-- Function file is a HTML page that includes the JavaScript where functions for ExecuteAction will be ca
+          lled. Think of the FunctionFile as the code behind ExecuteFunction. -->
+          <FunctionFile resid="CVSSCal.DesktopFunctionFile.Url" />
+
+          <!-- PrimaryCommandSurface is the main Office Ribbon. -->
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <!-- Use OfficeTab to extend an existing Tab. Use CustomTab to create a new tab. -->
+            <OfficeTab id="TabInsert">
+              <!-- Ensure you provide a unique id for the group. Recommendation for any IDs is to namespace using your company name. -->
+              <Group id="CVSSCal.Group1">
+                <!-- Label for your group. resid must point to a ShortString resource. -->
+                <Label resid="CVSSCal.Group1Label" />
+                <!-- Icons. Required sizes 16,32,80, optional 20, 24, 40, 48, 64. Strongly recommended to provide all sizes for great UX. -->
+                <!-- Use PNG icons. All URLs on the resources section must use HTTPS. -->
+                <Icon>
+                  <bt:Image size="16" resid="CVSSCal.icon16" />
+                  <bt:Image size="32" resid="CVSSCal.icon32" />
+                  <bt:Image size="64" resid="CVSSCal.icon64" />
+                  <bt:Image size="80" resid="CVSSCal.icon80" />
+                </Icon>
+
+                <!-- Control. It can be of type "Button" or "Menu". -->
+                <Control xsi:type="Button" id="CVSSCal.TaskpaneButton">
+                  <Label resid="CVSSCal.TaskpaneButton.Label" />
+                  <Supertip>
+                    <!-- ToolTip title. resid must point to a ShortString resource. -->
+                    <Title resid="CVSSCal.TaskpaneButton.Label" />
+                    <!-- ToolTip description. resid must point to a LongString resource. -->
+                    <Description resid="CVSSCal.TaskpaneButton.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="CVSSCal.icon16" />
+                    <bt:Image size="32" resid="CVSSCal.icon32" />
+                    <bt:Image size="64" resid="CVSSCal.icon64" />
+                    <bt:Image size="80" resid="CVSSCal.icon80" />
+                  </Icon>
+
+                  <!-- This is what happens when the command is triggered (E.g. click on the Ribbon). Supported actions are ExecuteFunction or ShowTaskpane. -->
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>ButtonId1</TaskpaneId>
+                    <!-- Provide a url resource id for the location that will be displayed on the task pane. -->
+                    <SourceLocation resid="CVSSCal.Taskpane.Url" />
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+
+    <!-- You can use resources across hosts and form factors. -->
+    <Resources>
+      <bt:Images>
+        <bt:Image id="CVSSCal.icon16" DefaultValue="https://localhost:3000/assets/icon16.png" />
+        <bt:Image id="CVSSCal.icon32" DefaultValue="https://localhost:3000/assets/icon32.png" />
+        <bt:Image id="CVSSCal.icon64" DefaultValue="https://localhost:3000/assets/icon64.png" />
+        <bt:Image id="CVSSCal.icon80" DefaultValue="https://localhost:3000/assets/icon80.png" />
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="CVSSCal.Taskpane.Url" DefaultValue="https://localhost:3000/index.html" />
+        <bt:Url id="CVSSCal.GetStarted.LearnMoreUrl" DefaultValue="https://github.com/malacupa/cvssv3.0-base-calculator-addin" />
+        <bt:Url id="CVSSCal.DesktopFunctionFile.Url" DefaultValue="https://localhost:3000/function-file/function-file.html" />
+      </bt:Urls>
+      <!-- ShortStrings max characters==125. -->
+      <bt:ShortStrings>
+        <bt:String id="CVSSCal.TaskpaneButton.Label" DefaultValue="Show Calculator" />
+        <bt:String id="CVSSCal.GetStarted.Title" DefaultValue="All set up!" />
+        <bt:String id="CVSSCal.Group1Label" DefaultValue=" " />
+      </bt:ShortStrings>
+      <!-- LongStrings max characters==250. -->
+      <bt:LongStrings>
+        <bt:String id="CVSSCal.TaskpaneButton.Tooltip" DefaultValue="Click to view side panel" />
+        <bt:String id="CVSSCal.GetStarted.Description" DefaultValue="Your CVSSv3.0 Base Calculator Add-in will be located here in the Insert tab." />
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+  <!-- End Add-in Commands Mode integration. -->
+
+</OfficeApp>
