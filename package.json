@@ -12,10 +12,10 @@
   "dependencies": {
     "@microsoft/office-js-helpers": "^1.0.1",
     "babel-polyfill": "^6.26.0",
-    "jquery": "^3.1.1"
+    "jquery": ">=3.4.0"
   },
   "devDependencies": {
-    "@types/jquery": "^3.3.29",
+    "@types/jquery": ">=3.4.0",
     "@types/office-js": "^0.0.140",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
